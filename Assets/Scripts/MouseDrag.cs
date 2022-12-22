@@ -23,6 +23,10 @@ public class MouseDrag : MonoBehaviour
     }
     private void Update()
     {
+        MouseDrags();
+    }
+    private void MouseDrags()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             startPos = Input.mousePosition;
@@ -45,10 +49,6 @@ public class MouseDrag : MonoBehaviour
             DrawDragRectangle();
         }
     }
-    private void MouseDrags()
-    {
-        
-    }
     private void DrawDragRectangle()
     {
         //드래그 범위 위치
@@ -68,6 +68,7 @@ public class MouseDrag : MonoBehaviour
             dragRect.xMin = startPos.x;
             dragRect.xMax = Input.mousePosition.x;
         }
+
         if (Input.mousePosition.y < startPos.y)
         {
             dragRect.yMin = Input.mousePosition.y;
