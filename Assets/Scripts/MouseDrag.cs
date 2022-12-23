@@ -18,7 +18,6 @@ public class MouseDrag : MonoBehaviour
     {
         mainCam = Camera.main;
         unitManager = GetComponent<UnitManager>();
-
         DrawDragRectangle();
     }
     private void Update()
@@ -83,7 +82,7 @@ public class MouseDrag : MonoBehaviour
     private void SelectUnits()
     {
         //모든 유닛 검사
-        foreach (UnitController unit in unitManager.unitList)
+        foreach (BasicUnit unit in unitManager.unitList)
         {
             //유닛 월드좌표를 화면 좌표로 변환 후 드래그 범위 내에 있는지 검사
             if (dragRect.Contains(mainCam.WorldToScreenPoint(unit.transform.position)))

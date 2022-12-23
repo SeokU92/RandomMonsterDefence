@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class UnitManager : MonoBehaviour
 {
-    [SerializeField] private GameObject unitPrefab;     //유닛 프리팹
-    [SerializeField] private Transform unitSpawnTrans;    //유닛 소환 위치
+    [SerializeField] private Transform unitSpawnTrans;                //유닛 소환 위치
 
-    private List<UnitController> selectUnitList = new List<UnitController>();   //선택된 유닛
-    public  List<UnitController> unitList { get; private set; }                 //맵에 존재하는 모든 유닛    
+    private List<BasicUnit> selectUnitList = new List<BasicUnit>();   //선택된 유닛
+    public List<BasicUnit> unitList { get; private set; }             //맵에 존재하는 모든 유닛    
 
 
     // 유닛 스폰 버튼
@@ -16,23 +15,42 @@ public class UnitManager : MonoBehaviour
     {
         SpawnUnits();
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SpawnUnits();
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SellUnits();
+        }
+    }
 
     // 유닛 스폰
-    public List<UnitController> SpawnUnits()
+    public List<BasicUnit> SpawnUnits()
     {
-        //List<UnitController> unitList = new List<UnitController>();
-
-        GameObject unitSpawn = Instantiate(unitPrefab, unitSpawnTrans.position, Quaternion.identity);
-        UnitController unit = unitSpawn.GetComponent<UnitController>();
-
+        GameObject units = ObjectPooling.SpawnFromPool("Unit", unitSpawnTrans.position);
+        BasicUnit unit = units.GetComponent<BasicUnit>();
         unitList.Add(unit);
+       
         return unitList;
-    }   
+    }  
+    public List<BasicUnit> SellUnits()
+    {
+        for(int i = 0; i < selectUnitList.Count; i++)
+        {
+            BasicUnit unit = selectUnitList[i];
+            unit.SellUnit();
+            unitList.Remove(unit);
+        }
+        return unitList;
+    }
     /// <summary>
     /// 마우스 클릭으로 유닛 선택
     /// </summary>
     /// <param name="selectUnit"></param>
-    public void ClickSelectUnit(UnitController selectUnit)
+    public void ClickSelectUnit(BasicUnit selectUnit)
     {
         DeSelectAll(); //기존에 선택 된 유닛 해제
         SelectUnit(selectUnit);
@@ -41,7 +59,7 @@ public class UnitManager : MonoBehaviour
     /// Controll + 마우스 클릭 유닛 선택
     /// </summary>
     /// <param name="selectUnit"></param>
-    public void ControlClickSelectUnit(UnitController selectUnit)
+    public void ControlClickSelectUnit(BasicUnit selectUnit)
     {
         if(selectUnitList.Contains(selectUnit)) DeSelectUnit(selectUnit); //기존에 선택된 유닛 중복선택
         else SelectUnit(selectUnit);                                      //새로운 유닛 선택
@@ -50,7 +68,7 @@ public class UnitManager : MonoBehaviour
     /// 마우스 드래그 유닛 선택
     /// </summary>
     /// <param name="selectUnit"></param>
-    public void DragSelectUnit(UnitController selectUnit)
+    public void DragSelectUnit(BasicUnit selectUnit)
     {
         if (!selectUnitList.Contains(selectUnit))
         {
@@ -82,7 +100,7 @@ public class UnitManager : MonoBehaviour
     /// <summary>
     /// 매개변수로 받아온 유닛 선택설정
     /// </summary>
-    private void SelectUnit(UnitController selectUnit)
+    private void SelectUnit(BasicUnit selectUnit)
     {
         // 유닛이 선택되었을 때
         selectUnit.SelectUnit();
@@ -92,7 +110,7 @@ public class UnitManager : MonoBehaviour
     /// <summary>
     /// 매개변수로 받아온 유닛 선택 해제 설정
     /// </summary>
-    private void DeSelectUnit(UnitController selectUnit)
+    private void DeSelectUnit(BasicUnit selectUnit)
     {
         //유닛이 해제되었을 때
         selectUnit.DeSelectUnit();
