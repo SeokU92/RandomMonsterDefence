@@ -10,14 +10,25 @@ public class BasicUnit : MonoBehaviour
     private GameObject unitMarker;
     private NavMeshAgent agent;
 
+    [Serializable]
+    public class UnitInfo
+    {
+        public UnitTypeOne unitType;
+        public string name;
+        public float damage;
+        public float speed;
+        public float attackRange;
+    }
+    [SerializeField] private UnitInfo unitInfo;
     private void OnEnable()
     {
-        agent = GetComponent<NavMeshAgent>();     
+        agent = gameObject.GetComponent<NavMeshAgent>();     
+        agent.speed = unitInfo.speed;
     }
     public void SelectUnit()
     {
         unitMarker.SetActive(true);
-       // unitMarker.gameObject.transform.localScale = this.gameObject.transform.localScale * 1.5f;
+        unitMarker.gameObject.transform.localScale = this.gameObject.transform.localScale * 1.5f;
     }
     public void DeSelectUnit()
     {

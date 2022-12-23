@@ -251,11 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0ae10617daad64ebf0dcaa72abdc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitInfo:
-    prefab: {fileID: 5411821594833429036}
-    name: Unit
-    damamge: 1
-    attackRange: 1
-    buyValue: 1
-    sellValue: 1
   unitMarker: {fileID: 5411821594617205249}
+  unitInfo:
+    name: Unit
+    damage: 1
+    speed: 1
+    attackRange: 1
