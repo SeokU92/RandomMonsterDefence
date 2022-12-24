@@ -22,18 +22,16 @@ public class UnitManager : MonoBehaviour
     private List<BasicUnit> selectUnitList = new List<BasicUnit>();   //선택된 유닛
     public List<BasicUnit> unitList { get; private set; }             //맵에 존재하는 모든 유닛    
 
-
-   
-    // 유닛 스폰 버튼
-    //public void SpawnUnitButton()
-    //{
-    //    SpawnUnits();
-    //}
+    private void Awake()
+    {
+        unitList = new List<BasicUnit>();
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             SpawnUnits();
+
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -44,12 +42,15 @@ public class UnitManager : MonoBehaviour
     // 유닛 스폰
     public List<BasicUnit> SpawnUnits()
     {        
+        List<BasicUnit> unitLists = new List<BasicUnit>();
+
         UnitTypeOne UT = (UnitTypeOne)(UnityEngine.Random.Range(0, Enum.GetNames(typeof(UnitTypeOne)).Length));
         GameObject units = ObjectPooling.SpawnFromPool(UT.ToString(), unitSpawnTrans.position);
         BasicUnit unit = units.GetComponent<BasicUnit>();
-        unitList.Add(unit);
-       
-        return unitList;
+        unitLists.Add(unit); 
+        unitList.Add(unit);  //맵 전체 유닛 리스트에 추가
+
+        return unitLists;
     }  
     public List<BasicUnit> SellUnits()
     {

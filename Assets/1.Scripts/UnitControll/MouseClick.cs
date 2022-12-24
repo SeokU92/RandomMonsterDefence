@@ -43,6 +43,7 @@ public class MouseClick : MonoBehaviour
             //레이에 해당하는 오브젝트가 없을 때
             else
             {
+
                 if (!Input.GetKey(KeyCode.LeftControl))
                     unitManager.DeSelectAll();
             }
@@ -52,7 +53,7 @@ public class MouseClick : MonoBehaviour
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
-            {                
+            {
                 unitManager.SelectUnitsMove(hit.point);
                 //클릭한곳 표시하는 파티클 추가
             }
