@@ -4,14 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
+/// <summary>
+/// 유니티 설정
+/// User Layer6 : Unit
+/// User Layer7 : Gound
+/// User Layer8 : Enemy
+/// User Layer9 : Obstacle
+/// User Layer10 : Skill
+/// </summary>
 public class GameManager : Singleton<GameManager>
 {
     [HideInInspector] public BasicUnit unit;
     [HideInInspector] public BasicEnemy enemy;
 
-    [SerializeField] private TextMeshProUGUI goldText;
-    [SerializeField] private TextMeshProUGUI lifeText;
-    [SerializeField] private TextMeshProUGUI cost;
+    [SerializeField] private TextMeshProUGUI goldText;      //골드
+    [SerializeField] private TextMeshProUGUI lifeText;      //남은생명
+    [SerializeField] private TextMeshProUGUI cost;          //유닛 구매비용
     private int gold;
     public int Gold
     {
@@ -44,7 +53,7 @@ public class GameManager : Singleton<GameManager>
     {
         gold = 100;
         life = 10;
-        purchaseCost = 10;
+        purchaseCost = 10;        
     }
 
     private void Update()

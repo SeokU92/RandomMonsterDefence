@@ -13,12 +13,14 @@ public enum BossType
 }
 public class StageManager : MonoBehaviour
 {
-    BasicEnemy basicEnemy;    
-    [SerializeField] private Transform startPoint;  //시작지점
-    [SerializeField] private int spawnDelay;        //소환 딜레이
-    [SerializeField] private float roundDelay;      //다음 레벨구간 대기시간
-    [SerializeField] private int curStageLevel;     //현재 스테이지 레벨
-    public List<Stage> stages = new List<Stage>();  //스테이지 단계 구성
+    BasicEnemy basicEnemy;
+
+    [SerializeField] private TextMeshProUGUI roundNum;      //라운드 표시
+    [SerializeField] private Transform startPoint;          //시작지점
+    [SerializeField] private int spawnDelay;                //소환 딜레이
+    [SerializeField] private float roundDelay;              //다음 레벨구간 대기시간
+    [SerializeField] private int curStageLevel;             //현재 스테이지 레벨
+    public List<Stage> stages = new List<Stage>();          //스테이지 단계 구성
 
     [Serializable]
     public class Stage
@@ -32,7 +34,7 @@ public class StageManager : MonoBehaviour
 
     private void OnEnable()
     {
-        stage.level = 0;
+        stage.level = 0;        
     }
     private void Update()
     {        
@@ -51,7 +53,7 @@ public class StageManager : MonoBehaviour
         }
         if (stages[stage.level].level == curStageLevel)                                 // 스테이지 레벨과 현재 레벨이 맞으면 스테이지 시작
         {
-           
+            roundNum.text = (curStageLevel + 1).ToString();
             while (stages[stage.level].curEnemy < stages[stage.level].maxEnemy)         // 최대 소환 마릿수 제한
             {
                 ObjectPooling.SpawnFromPool(stage.enemyType, startPoint.position);
