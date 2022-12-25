@@ -888,11 +888,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6723425386728063862, guid: 460cdefe1b8951f4fb5829813ae8f0da, type: 3}
   goalPoint: {fileID: 7289130052738255012, guid: 07b838fa8e3ec2b4ab0962542fae2b6c, type: 3}
-  enemyInfo:
-    enemyName: Bat
-    speed: 4
-    maxHp: 15
-    curHp: 15
+  enemyName: Bat
+  speed: 5
+  dropGold: 5
+  maxHp: 70
+  curHp: 70
 --- !u!136 &1630072284
 CapsuleCollider:
   m_ObjectHideFlags: 0

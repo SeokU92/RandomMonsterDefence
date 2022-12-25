@@ -611,16 +611,13 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  unitInfo:
-    unitType: 2
-    name: ScorpionOne
-    damage: 5
-    speed: 2
-    attackSpeed: 3
-    attackRange: 12
-    attackName: ScorpionPJ
-    buyValue: 10
-    sellValue: 5
+  unitType: 2
+  unitName: ScorpionOne
+  speed: 2
+  attackSpeed: 4
+  attackRange: 15
+  attackName: ScorpionPJ
+  damage: 5
 --- !u!195 &6118574996097123714
 NavMeshAgent:
   m_ObjectHideFlags: 0

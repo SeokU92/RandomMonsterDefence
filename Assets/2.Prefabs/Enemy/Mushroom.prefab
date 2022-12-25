@@ -137,11 +137,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6723425386728063862, guid: 460cdefe1b8951f4fb5829813ae8f0da, type: 3}
   goalPoint: {fileID: 7289130052738255012, guid: 07b838fa8e3ec2b4ab0962542fae2b6c, type: 3}
-  enemyInfo:
-    enemyName: Mushroom
-    speed: 2
-    maxHp: 20
-    curHp: 20
+  enemyName: Mushroom
+  speed: 2.5
+  dropGold: 2
+  maxHp: 30
+  curHp: 30
 --- !u!136 &7939951377984472675
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -4,38 +4,31 @@ using UnityEngine;
 
 public class ScorpionPJ : MonoBehaviour
 {
-    BasicUnit unit;        
-    private Transform trans;
-    //public Renderer rd;
-    
     private void Awake()
     {
-        trans = GetComponent<Transform>();
+        StartCoroutine(Return());
     }
     private void Update()
     {
-        gameObject.transform.Translate(Vector3.forward * 10f * Time.deltaTime);
+        gameObject.transform.Translate(Vector3.forward * 20f * Time.deltaTime);
     }
-    //public void SetColor(Color color)
-    //{
-    //    rd.material.SetColor("_EmissionColor", color);
-    //}
-    //public void SetSize(Transform trans)
-    //{
-    //    gameObject.transform.localScale = trans.localScale;
-    //}
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")))
         {
             Debug.Log(other.name);
+            GameManager.Instance.enemy.Hit(GameManager.Instance.unit.damage);
             gameObject.SetActive(false);   
         }
         if(other.gameObject.layer.Equals(LayerMask.NameToLayer("Obstacle")))
         {
-            Debug.Log(other.name);
             gameObject.SetActive(false);
         }
+    }
+    IEnumerator Return()
+    {
+        yield return new WaitForSeconds(5f);
+        gameObject.SetActive(false);
     }
     private void OnDisable()
     {

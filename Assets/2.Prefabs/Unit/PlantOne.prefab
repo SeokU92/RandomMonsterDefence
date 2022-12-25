@@ -5224,16 +5224,13 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  unitInfo:
-    unitType: 1
-    name: PlantOne
-    damage: 3
-    speed: 3
-    attackSpeed: 3
-    attackRange: 10
-    attackName: PlantCannon
-    buyValue: 10
-    sellValue: 5
+  unitType: 1
+  unitName: PlantOne
+  speed: 4
+  attackSpeed: 2.5
+  attackRange: 10
+  attackName: PlantCannon
+  damage: 3
 --- !u!195 &6669374051160913756
 NavMeshAgent:
   m_ObjectHideFlags: 0

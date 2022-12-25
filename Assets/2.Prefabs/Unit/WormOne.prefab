@@ -482,21 +482,18 @@ MonoBehaviour:
   isAttackDelay: 0
   attackPoint: {fileID: 5277737574776329545}
   targeting: {fileID: 0}
-  viewRadius: 20
+  viewRadius: 22
   viewAngle: 360
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  unitInfo:
-    unitType: 3
-    name: WormOne
-    damage: 10
-    speed: 1
-    attackSpeed: 10
-    attackRange: 20
-    attackName: WormDeath
-    buyValue: 10
-    sellValue: 5
+  unitType: 3
+  unitName: WormOne
+  speed: 1
+  attackSpeed: 8
+  attackRange: 20
+  attackName: WormDeath
+  damage: 10
 --- !u!195 &-2712397311450843382
 NavMeshAgent:
   m_ObjectHideFlags: 0

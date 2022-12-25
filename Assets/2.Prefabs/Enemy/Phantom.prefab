@@ -261,11 +261,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6723425386728063862, guid: 460cdefe1b8951f4fb5829813ae8f0da, type: 3}
   goalPoint: {fileID: 7289130052738255012, guid: 07b838fa8e3ec2b4ab0962542fae2b6c, type: 3}
-  enemyInfo:
-    enemyName: Phantom
-    speed: 3
-    maxHp: 25
-    curHp: 25
+  enemyName: Phantom
+  speed: 5
+  dropGold: 7
+  maxHp: 350
+  curHp: 350
 --- !u!136 &226814168
 CapsuleCollider:
   m_ObjectHideFlags: 0

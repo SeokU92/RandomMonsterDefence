@@ -6,10 +6,9 @@ public class PlantCannon : MonoBehaviour
 {   
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")))
         {
-            Debug.Log(other.name);
+            GameManager.Instance.enemy.Hit(GameManager.Instance.unit.damage);
             StartCoroutine(WaitCo());
         }       
     }

@@ -357,11 +357,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6723425386728063862, guid: 460cdefe1b8951f4fb5829813ae8f0da, type: 3}
   goalPoint: {fileID: 7289130052738255012, guid: 07b838fa8e3ec2b4ab0962542fae2b6c, type: 3}
-  enemyInfo:
-    enemyName: Egg
-    speed: 2
-    maxHp: 10
-    curHp: 10
+  enemyName: Egg
+  speed: 2
+  dropGold: 1
+  maxHp: 20
+  curHp: 20
 --- !u!195 &1590059440
 NavMeshAgent:
   m_ObjectHideFlags: 0

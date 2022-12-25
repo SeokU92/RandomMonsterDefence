@@ -7,7 +7,7 @@ public class WormDeath : MonoBehaviour
     {
         if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")))
         {
-            Debug.Log(other.name);
+            GameManager.Instance.enemy.Hit(GameManager.Instance.unit.damage);
             StartCoroutine(WaitCo());
         }
     }

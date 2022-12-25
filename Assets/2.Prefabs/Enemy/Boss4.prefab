@@ -213,11 +213,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6723425386728063862, guid: 460cdefe1b8951f4fb5829813ae8f0da, type: 3}
   goalPoint: {fileID: 7289130052738255012, guid: 07b838fa8e3ec2b4ab0962542fae2b6c, type: 3}
-  enemyInfo:
-    enemyName: Boss4
-    speed: 2.5
-    maxHp: 500
-    curHp: 500
+  enemyName: Boss4
+  speed: 2.5
+  dropGold: 500
+  maxHp: 1500
+  curHp: 1500
 --- !u!136 &4240834602736453532
 CapsuleCollider:
   m_ObjectHideFlags: 0

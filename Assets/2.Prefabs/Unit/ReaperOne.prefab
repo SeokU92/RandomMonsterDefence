@@ -541,16 +541,13 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  unitInfo:
-    unitType: 0
-    name: ReaperOne
-    damage: 1
-    speed: 6
-    attackSpeed: 1.5
-    attackRange: 8
-    attackName: ReaperSlash
-    buyValue: 10
-    sellValue: 5
+  unitType: 0
+  unitName: ReaperOne
+  speed: 8
+  attackSpeed: 1.5
+  attackRange: 8
+  attackName: ReaperSlash
+  damage: 1
 --- !u!195 &6638667851055442105
 NavMeshAgent:
   m_ObjectHideFlags: 0

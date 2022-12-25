@@ -30,8 +30,9 @@ public class UnitManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SpawnUnits();
-
+            if (GameManager.Instance.Gold > GameManager.Instance.PurchaseCost)
+                SpawnUnits();
+            else return;
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -49,6 +50,9 @@ public class UnitManager : MonoBehaviour
         BasicUnit unit = units.GetComponent<BasicUnit>();
         unitLists.Add(unit); 
         unitList.Add(unit);  //맵 전체 유닛 리스트에 추가
+
+        GameManager.Instance.Gold -= GameManager.Instance.PurchaseCost;
+        GameManager.Instance.PurchaseCost++;
 
         return unitLists;
     }  

@@ -9,7 +9,7 @@ public class BasicUnit : MonoBehaviour, IAttackble
     [SerializeField] private GameObject unitMarker;                     //선택된 유닛 표시
     private NavMeshAgent agent;
     private Animator anim;
-    [SerializeField] private bool isAttackDelay = false;                        //공격 쿨타임
+    [SerializeField] private bool isAttackDelay = false;                //공격 쿨타임
     [SerializeField] private Transform attackPoint;
 
     [Header("View")]
@@ -19,25 +19,22 @@ public class BasicUnit : MonoBehaviour, IAttackble
     [SerializeField] private LayerMask targetLayer;                     //적 레이어
     List<GameObject> targetList = new List<GameObject>();
     
-    [Serializable]
-    public class UnitInfo
-    {
-        public UnitTypeOne unitType;
-        public string name;             //이름
-        public float damage;            //데미지
-        public float speed;             //이동속도
-        public float attackSpeed;       //공격 속도
-        public float attackRange;       //공격 사거리
-        public string attackName;       //공격 이름
-        public int buyValue;            //구매비용
-        public int sellValue;           //판매비용
-    }
-    [SerializeField] private UnitInfo unitInfo;
+    [Header("UnitInfo")]
+    [SerializeField] private UnitTypeOne unitType;
+    [SerializeField] private string unitName;         //이름
+    [SerializeField] private float speed;             //이동속도
+    [SerializeField] private float attackSpeed;       //공격 속도
+    [SerializeField] private float attackRange;       //공격 사거리
+    [SerializeField] private string attackName;       //공격 이름
+    public int damage;                                //데미지
+    
     private void OnEnable()
     {
+        GameManager.Instance.unit = FindObjectOfType<BasicUnit>();
         anim = GetComponent<Animator>();
         agent = gameObject.GetComponent<NavMeshAgent>();     
-        agent.speed = unitInfo.speed;
+        agent.speed = speed;
+        attackRange = viewRadius;
     }   
     private void Update()
     {
@@ -153,15 +150,15 @@ public class BasicUnit : MonoBehaviour, IAttackble
             isAttackDelay = true;
             transform.LookAt(targeting.transform);
             anim.SetTrigger("Attack");           
-            if(unitInfo.attackName == "WormDeath")
+            if(attackName == "WormDeath")
             {
-                ObjectPooling.SpawnFromPool(unitInfo.attackName, targeting.position, targeting.rotation);
+                ObjectPooling.SpawnFromPool(attackName, targeting.position, targeting.rotation);
             }
             else
             {
-                ObjectPooling.SpawnFromPool(unitInfo.attackName, attackPoint.position, attackPoint.rotation);
+                ObjectPooling.SpawnFromPool(attackName, attackPoint.position, attackPoint.rotation);
             }
-            yield return new WaitForSeconds(unitInfo.attackSpeed);
+            yield return new WaitForSeconds(attackSpeed);
             isAttackDelay = false;
         }          
     }   

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 
-public class BasicEnemy : MonoBehaviour
+public class BasicEnemy : MonoBehaviour, IHittable
 {
     private NavMeshAgent agent;
 
@@ -12,34 +12,30 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private Transform startPoint;
     [SerializeField] private Transform goalPoint;
 
-    [Serializable]
-    public class EnemyInfo
+    [Header("EnemyInfo")]   
+    [SerializeField] private string enemyName;
+    [SerializeField] private float speed;
+    [SerializeField] private int dropGold;
+    [SerializeField] private float maxHp;
+    [SerializeField] private float curHp;
+    public float Hp
     {
-        BasicEnemy basicEnemy;
-        public string enemyName;
-        public float speed;
-        public float maxHp;
-        [SerializeField] private float dropGold;
-        [SerializeField] private float curHp;
-        public float Hp
+        get { return curHp; }
+        set
         {
-            get { return curHp; }
-            set
+            curHp = value;
+            if(curHp > maxHp)
+                curHp = maxHp;
+            if(curHp <= 0)
             {
-                curHp = value;
-                if(curHp > maxHp)
-                    curHp = maxHp;
-                if(curHp <= 0)
-                {
-                    basicEnemy.Die();
-                }
+                Die();
             }
         }
-    }   
-    [SerializeField] private EnemyInfo enemyInfo;
+    }       
     private void OnEnable()
     {
-        agent.speed = enemyInfo.speed;
+        GameManager.Instance.enemy = FindObjectOfType<BasicEnemy>();
+        agent.speed = speed;
         gameObject.transform.position = startPoint.position;
     }
     private void Awake()
@@ -57,21 +53,29 @@ public class BasicEnemy : MonoBehaviour
             agent.destination = goalPoint.position;
             if (agent.velocity.sqrMagnitude >= 0.2f * 0.2f && agent.remainingDistance <= 0.5f)
             {
+                GameManager.Instance.Life--;
                 gameObject.SetActive(false);
             }
         }
-    }  
-   
+    }
+    public void Hit(int damage)
+    {
+        Hp -= damage;
+        //데미지 텍스트
+    }
     private void Die()
     {
-        if(enemyInfo.Hp <= 0)
+        if(Hp <= 0)
         {
             gameObject.SetActive(false);
+            GameManager.Instance.Gold += dropGold;
         }
     }
     private void OnDisable()
     {
         ObjectPooling.ReturnToPool(gameObject);
-        enemyInfo.Hp = enemyInfo.maxHp;
+        Hp = maxHp;
     }
+
+    
 }

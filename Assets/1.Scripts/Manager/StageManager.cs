@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using TMPro; 
 public enum EnemyType
 {
     Egg, Mushroom, Bird, Spider, Bat, Bigmushroom, Phantom
@@ -39,28 +39,31 @@ public class StageManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
             StartCoroutine(SpawnEnemy());
-        }
-        if (stages.Count <= 1)
-        {
-            StopCoroutine(SpawnEnemy());
-            stages.Clear();
-        }
+        }              
     }    
     IEnumerator SpawnEnemy()
     {
-        if(stages[stage.level].level == curStageLevel)
+        if (stages.Count <= 1)                                                          // 리스트가 다 비면 코루틴을 빠져나감
         {
-            while(stages[stage.level].curEnemy < stages[stage.level].maxEnemy)
+            StopCoroutine(SpawnEnemy());
+            stages.Clear();
+            yield break;
+        }
+        if (stages[stage.level].level == curStageLevel)                                 // 스테이지 레벨과 현재 레벨이 맞으면 스테이지 시작
+        {
+           
+            while (stages[stage.level].curEnemy < stages[stage.level].maxEnemy)         // 최대 소환 마릿수 제한
             {
                 ObjectPooling.SpawnFromPool(stage.enemyType, startPoint.position);
                 stages[stage.level].curEnemy++;
-                yield return new WaitForSeconds(spawnDelay);
-            }
-            yield return new WaitForSeconds(roundDelay);
-            stages.Remove(stages[0]);
+                yield return new WaitForSeconds(spawnDelay);                            // 소환 쿨타임
+            } 
+            yield return new WaitForSeconds(roundDelay);                                // 다음라운드 자동으로 넘어가지는 시간
+            stages.Remove(stages[0]);                                                   // 한 라운드가 끝나면 리스트에서 삭제
             curStageLevel++;
             stage.enemyType = stages[0].enemyType;
             StartCoroutine(SpawnEnemy());
+           
         }
     }
 }
