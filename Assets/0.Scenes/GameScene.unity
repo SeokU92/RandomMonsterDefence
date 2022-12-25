@@ -1320,6 +1320,9 @@ MonoBehaviour:
   - key: Phantom
     prefab: {fileID: 2611149553095981223, guid: add7e67fb68b0d54a9d9893bd0356223, type: 3}
     amount: 20
+  - key: Golem
+    prefab: {fileID: 1691303173787263157, guid: 812ddbf09810e754bbf24d7bbd9f760b, type: 3}
+    amount: 20
   - key: Boss
     prefab: {fileID: 6902694358650038786, guid: 785a71c34aa70094982ab3dc90ecd70f, type: 3}
     amount: 1
@@ -3588,91 +3591,93 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 1975579881}
   spawnDelay: 1
+  roundDelay: 1
+  curStageLevel: 0
   stages:
+  - level: 0
+    enemyType: Egg
+    maxEnemy: 1
+    curEnemy: 0
   - level: 1
     enemyType: Egg
-    maxEnemy: 20
+    maxEnemy: 1
     curEnemy: 0
   - level: 2
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Mushroom
+    maxEnemy: 1
     curEnemy: 0
   - level: 3
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Mushroom
+    maxEnemy: 1
     curEnemy: 0
   - level: 4
-    enemyType: 
-    maxEnemy: 20
-    curEnemy: 0
-  - level: 5
     enemyType: Boss
     maxEnemy: 1
     curEnemy: 0
+  - level: 5
+    enemyType: Bird
+    maxEnemy: 1
+    curEnemy: 0
   - level: 6
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Bird
+    maxEnemy: 1
     curEnemy: 0
   - level: 7
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Spider
+    maxEnemy: 1
     curEnemy: 0
   - level: 8
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Spider
+    maxEnemy: 1
     curEnemy: 0
   - level: 9
-    enemyType: 
-    maxEnemy: 20
-    curEnemy: 0
-  - level: 10
     enemyType: Boss2
     maxEnemy: 1
     curEnemy: 0
+  - level: 10
+    enemyType: Bat
+    maxEnemy: 1
+    curEnemy: 0
   - level: 11
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Bat
+    maxEnemy: 1
     curEnemy: 0
   - level: 12
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Bigmushroom
+    maxEnemy: 1
     curEnemy: 0
   - level: 13
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Bigmushroom
+    maxEnemy: 1
     curEnemy: 0
   - level: 14
-    enemyType: 
-    maxEnemy: 20
-    curEnemy: 0
-  - level: 15
     enemyType: Boss3
     maxEnemy: 1
     curEnemy: 0
+  - level: 15
+    enemyType: Phantom
+    maxEnemy: 1
+    curEnemy: 0
   - level: 16
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Phantom
+    maxEnemy: 1
     curEnemy: 0
   - level: 17
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Golem
+    maxEnemy: 1
     curEnemy: 0
   - level: 18
-    enemyType: 
-    maxEnemy: 20
+    enemyType: Golem
+    maxEnemy: 1
     curEnemy: 0
   - level: 19
-    enemyType: 
-    maxEnemy: 20
-    curEnemy: 0
-  - level: 20
     enemyType: Boss4
     maxEnemy: 1
     curEnemy: 0
   stage:
     level: 0
-    enemyType: 
-    maxEnemy: 0
+    enemyType: Egg
+    maxEnemy: 20
     curEnemy: 0
 --- !u!4 &1953687670
 Transform:

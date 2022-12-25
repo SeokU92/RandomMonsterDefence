@@ -18,8 +18,9 @@ public class BasicEnemy : MonoBehaviour
         BasicEnemy basicEnemy;
         public string enemyName;
         public float speed;
-        [SerializeField]private float maxHp;
-        [SerializeField]private float curHp;
+        public float maxHp;
+        [SerializeField] private float dropGold;
+        [SerializeField] private float curHp;
         public float Hp
         {
             get { return curHp; }
@@ -39,6 +40,7 @@ public class BasicEnemy : MonoBehaviour
     private void OnEnable()
     {
         agent.speed = enemyInfo.speed;
+        gameObject.transform.position = startPoint.position;
     }
     private void Awake()
     {
@@ -70,5 +72,6 @@ public class BasicEnemy : MonoBehaviour
     private void OnDisable()
     {
         ObjectPooling.ReturnToPool(gameObject);
+        enemyInfo.Hp = enemyInfo.maxHp;
     }
 }
