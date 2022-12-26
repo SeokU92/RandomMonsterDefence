@@ -38,7 +38,7 @@ public class StageManager : MonoBehaviour
     }
     private void Update()
     {        
-        if(Input.GetKeyDown(KeyCode.Alpha3))
+        if(Input.GetKeyDown(KeyCode.Alpha4))
         {
             StartCoroutine(SpawnEnemy());
         }              

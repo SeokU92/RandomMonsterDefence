@@ -16,7 +16,6 @@ public class ScorpionPJ : MonoBehaviour
     {
         if(other.gameObject.layer.Equals(LayerMask.NameToLayer("Enemy")))
         {
-            Debug.Log(other.name);
             GameManager.Instance.enemy.Hit(GameManager.Instance.unit.damage);
             gameObject.SetActive(false);   
         }

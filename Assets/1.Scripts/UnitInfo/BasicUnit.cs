@@ -20,7 +20,8 @@ public class BasicUnit : MonoBehaviour, IAttackble
     List<GameObject> targetList = new List<GameObject>();
     
     [Header("UnitInfo")]
-    [SerializeField] private UnitTypeOne unitType;
+    public UnitTypeOne unitType;
+    public Color unitColor;
     [SerializeField] private string unitName;         //이름
     [SerializeField] private float speed;             //이동속도
     [SerializeField] private float attackSpeed;       //공격 속도

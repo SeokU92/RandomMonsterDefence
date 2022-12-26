@@ -360,8 +360,8 @@ MonoBehaviour:
   enemyName: Egg
   speed: 2
   dropGold: 1
-  maxHp: 20
-  curHp: 20
+  maxHp: 15
+  curHp: 15
 --- !u!195 &1590059440
 NavMeshAgent:
   m_ObjectHideFlags: 0

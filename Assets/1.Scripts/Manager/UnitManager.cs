@@ -3,18 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum UnitTypeOne
-{
-    ReaperOne, PlantOne, ScorpionOne, WormOne
-}
-public enum UnitTypeTwo
-{
-    ReaperTwo, PlantTwo, ScorpionTwo, WormTwo
-}
-public enum UnitTypeThree
-{
-    ReaperThree, PlantThree, ScorpionThree, WormThree
-}
 public class UnitManager : MonoBehaviour
 {
     [SerializeField] private Transform unitSpawnTrans;                //유닛 소환 위치
@@ -63,6 +51,7 @@ public class UnitManager : MonoBehaviour
             BasicUnit unit = selectUnitList[i];
             unit.SellUnit();
             unitList.Remove(unit);
+            GameManager.Instance.Gold += GameManager.Instance.PurchaseCost / 2;
         }
         return unitList;
     }
