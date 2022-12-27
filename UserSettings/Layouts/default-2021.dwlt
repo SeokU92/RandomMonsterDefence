@@ -127,7 +127,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 78
+  controlID: 54
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 79
+  controlID: 55
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -890,22 +890,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/1.Scripts/Manager
+    - Assets/Assets/GUI Kit The Stone/ResourceData/Sprites/Component/Icon_PictoIcons_(x2)
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 60
   m_LastFolders:
-  - Assets/1.Scripts/Manager
+  - Assets/Assets/GUI Kit The Stone/ResourceData/Sprites/Component/Icon_PictoIcons_(x2)
   m_LastFoldersGridSize: 60
   m_LastProjectPath: D:\Project\RandomMonsterDefence
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: aa6c0000
-    m_LastClickedID: 27818
-    m_ExpandedIDs: 000000005e6c0000606c0000626c0000646c0000666c0000686c00006a6c00006c6c00006e6c0000706c0000726c0000746c0000766c0000786c00007a6c00007c6c00007e6c0000806c0000826c0000846c0000866c0000886c00008a6c00008c6c00008e6c0000906c0000926c0000946c0000966c000000ca9a3b
+    scrollPos: {x: 0, y: 166}
+    m_SelectedIDs: 5c800000
+    m_LastClickedID: 32860
+    m_ExpandedIDs: 000000005e6c0000606c0000626c0000646c0000666c0000686c00006a6c00006c6c00006e6c0000706c0000726c0000746c0000766c0000786c00007a6c00007c6c00007e6c0000806c0000826c0000846c0000866c0000886c00008a6c00008c6c00008e6c0000906c0000926c0000946c0000966c0000c06c0000da6c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1061,23 +1061,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 760c0000
+      m_SelectedIDs: 5c800000
       m_LastClickedID: 0
-      m_ExpandedIDs: 2cfbffff
+      m_ExpandedIDs: 32fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: GameObject
+        m_OriginalName: GameObject
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -68084
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 4
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 7}
       m_SearchString: 
@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -12.097913, y: 5.8207893, z: 15.4389515}
     speed: 2
-    m_Value: {x: 17.517536, y: 0.90275717, z: 18.733437}
+    m_Value: {x: -12.097913, y: 5.8207893, z: 15.4389515}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1396,11 +1396,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.32529962, y: 0.48839188, z: -0.2026419, w: 0.7839812}
     speed: 2
-    m_Value: {x: 0.03021245, y: 0.96978503, z: -0.17377786, w: 0.16863537}
+    m_Value: {x: 0.32529366, y: 0.4883829, z: -0.20263818, w: 0.78396684}
   m_Size:
     m_Target: 10.593209
     speed: 2
-    m_Value: 6.693799
+    m_Value: 10.593209
   m_Ortho:
     m_Target: 0
     speed: 2
