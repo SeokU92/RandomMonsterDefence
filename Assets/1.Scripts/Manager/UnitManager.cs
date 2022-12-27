@@ -33,7 +33,8 @@ public class UnitManager : MonoBehaviour
     {        
         List<BasicUnit> unitLists = new List<BasicUnit>();
 
-        UnitTypeOne UT = (UnitTypeOne)(UnityEngine.Random.Range(0, Enum.GetNames(typeof(UnitTypeOne)).Length));
+        //enum 유닛타입을 랜덤으로 받아와서 string으로 랜덤소환
+        UnitType UT = (UnitType)(UnityEngine.Random.Range(0, Enum.GetNames(typeof(UnitType)).Length));
         GameObject units = ObjectPooling.SpawnFromPool(UT.ToString(), unitSpawnTrans.position);
         BasicUnit unit = units.GetComponent<BasicUnit>();
         unitLists.Add(unit); 

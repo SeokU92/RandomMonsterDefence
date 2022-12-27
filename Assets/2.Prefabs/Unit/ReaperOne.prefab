@@ -474,7 +474,8 @@ GameObject:
   - component: {fileID: 183713433}
   - component: {fileID: 6638667851055442105}
   - component: {fileID: 2070921402}
-  - component: {fileID: -8575147299020569184}
+  - component: {fileID: -1393696860130274116}
+  - component: {fileID: 6413501317436847114}
   m_Layer: 6
   m_Name: ReaperOne
   m_TagString: Untagged
@@ -544,8 +545,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   unitType: 0
-  unitColor: {r: 0.24313727, g: 0.11764707, b: 0.34901962, a: 1}
-  unitName: ReaperOne
+  unitName: Reaper
   speed: 8
   attackSpeed: 1.5
   attackRange: 8
@@ -581,13 +581,26 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6676111998185301772}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
---- !u!54 &-8575147299020569184
+--- !u!114 &-1393696860130274116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676111998185301772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18e02d6b48635d46a21a9998ececedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragSpeed: 50
+--- !u!54 &6413501317436847114
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

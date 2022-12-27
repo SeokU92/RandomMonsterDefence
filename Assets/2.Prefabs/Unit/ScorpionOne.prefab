@@ -540,7 +540,8 @@ GameObject:
   - component: {fileID: 1146478427}
   - component: {fileID: 6118574996097123714}
   - component: {fileID: 1466132684}
-  - component: {fileID: -5816512701399546643}
+  - component: {fileID: 6946788877574896650}
+  - component: {fileID: 9038952453957302907}
   m_Layer: 6
   m_Name: ScorpionOne
   m_TagString: Untagged
@@ -614,8 +615,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   unitType: 2
-  unitColor: {r: 1, g: 0.6784314, b: 0.16078432, a: 0}
-  unitName: ScorpionOne
+  unitName: Scorpion
   speed: 2
   attackSpeed: 4
   attackRange: 15
@@ -651,13 +651,26 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2534315495902057875}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.3
   m_Direction: 1
   m_Center: {x: 0, y: 0.65, z: 0}
---- !u!54 &-5816512701399546643
+--- !u!114 &6946788877574896650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534315495902057875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18e02d6b48635d46a21a9998ececedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragSpeed: 50
+--- !u!54 &9038952453957302907
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

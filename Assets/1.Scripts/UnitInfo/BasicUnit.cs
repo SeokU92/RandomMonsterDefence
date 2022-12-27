@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 
+public enum UnitType
+{
+    Reaper, Plant, Scorpion, Worm
+}
 public class BasicUnit : MonoBehaviour, IAttackble
 {
     [SerializeField] private GameObject unitMarker;                     //선택된 유닛 표시
@@ -20,8 +24,7 @@ public class BasicUnit : MonoBehaviour, IAttackble
     List<GameObject> targetList = new List<GameObject>();
     
     [Header("UnitInfo")]
-    public UnitTypeOne unitType;
-    public Color unitColor;
+    public UnitType unitType;
     [SerializeField] private string unitName;         //이름
     [SerializeField] private float speed;             //이동속도
     [SerializeField] private float attackSpeed;       //공격 속도
@@ -110,40 +113,7 @@ public class BasicUnit : MonoBehaviour, IAttackble
             StartCoroutine(Attack());
         else StopCoroutine(Attack());
         
-    }
-    /// <summary>
-    //for(int i = 0; i < targets.Length; i++)
-    //{
-    //    Transform target = targets[i].transform;
-    //    Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
-    //    //각도 내에 있는가
-    //    if (Vector3.Dot(transform.forward, dirToTarget) < Mathf.Cos(viewAngle * 0.5f * Mathf.Deg2Rad))
-    //    {
-    //        float distToTarget = Vector3.Distance(transform.position, target.position);
-    //        //장애물이 없는가
-    //        if(!Physics.Raycast(transform.position, dirToTarget, distToTarget, obstacleLayer))
-    //        {
-    //            targetList.Add(target.transform.gameObject);
-    //            Debug.DrawRay(transform.position, dirToTarget * distToTarget, Color.red);
-    //        }
-    //    }
-    //}
-    //if(targetList.Count != 0)
-    //{
-    //    targeting = targetList[0];
-    //    shortDis = Vector3.Distance(transform.position, targetList[0].transform.position);
-    //    foreach(GameObject found in targetList)
-    //    {
-    //        float distance = Vector3.Distance(transform.position, found.transform.position);
-    //        if(distance < shortDis)
-    //        {
-    //            targeting = found;
-    //            shortDis = distance;
-    //        }
-    //    }
-    //    Debug.Log(targeting.name);
-    //}
-    /// </summary>
+    } 
     public IEnumerator Attack()
     {       
         if(!isAttackDelay)
@@ -153,7 +123,7 @@ public class BasicUnit : MonoBehaviour, IAttackble
             anim.SetTrigger("Attack");           
             if(attackName == "WormDeath")
             {
-                ObjectPooling.SpawnFromPool(attackName, targeting.position, targeting.rotation);
+                ObjectPooling.SpawnFromPool(attackName, targeting.position, Quaternion.Euler(-180, 0, 0));
             }
             else
             {

@@ -65,11 +65,9 @@ public class BasicEnemy : MonoBehaviour, IHittable
     }
     private void Die()
     {
-        if(Hp <= 0)
-        {
-            GameManager.Instance.Gold += dropGold;
-            gameObject.SetActive(false);
-        }
+        GameManager.Instance.Gold += dropGold;
+        gameObject.SetActive(false);
+        
     }
     private void OnDisable()
     {

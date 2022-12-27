@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
 {
     [HideInInspector] public BasicUnit unit;
     [HideInInspector] public BasicEnemy enemy;
+    [HideInInspector] public UnitManager unitManager;
 
     [SerializeField] private TextMeshProUGUI goldText;      //골드
     [SerializeField] private TextMeshProUGUI lifeText;      //남은생명
