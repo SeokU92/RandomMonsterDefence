@@ -28,12 +28,15 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    // 유닛 스폰
+    /// <summary>
+    ///  유닛 1단계 랜덤소환
+    /// </summary>
+    /// <returns></returns>
     public List<BasicUnit> SpawnUnits()
     {        
         List<BasicUnit> unitLists = new List<BasicUnit>();
 
-        //enum 유닛타입을 랜덤으로 받아와서 string으로 랜덤소환
+        //유닛타입 enum을 랜덤으로 받아와서 string 으로 풀링
         UnitType UT = (UnitType)(UnityEngine.Random.Range(0, Enum.GetNames(typeof(UnitType)).Length));
         GameObject units = ObjectPooling.SpawnFromPool(UT.ToString(), unitSpawnTrans.position);
         BasicUnit unit = units.GetComponent<BasicUnit>();

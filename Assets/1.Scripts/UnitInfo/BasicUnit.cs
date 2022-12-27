@@ -10,27 +10,27 @@ public enum UnitType
 }
 public class BasicUnit : MonoBehaviour, IAttackble
 {
-    [SerializeField] private GameObject unitMarker;                     //선택된 유닛 표시
     private NavMeshAgent agent;
     private Animator anim;
+    [SerializeField] private GameObject unitMarker;                     //선택된 유닛 표시
     [SerializeField] private bool isAttackDelay = false;                //공격 쿨타임
     [SerializeField] private Transform attackPoint;
 
     [Header("View")]
-    [SerializeField] public Transform targeting;                        //적
+    [SerializeField] private Transform targeting;                       //적
     [SerializeField,Range(0f, 50f)] private float viewRadius;           //시야거리
     [SerializeField,Range(0f, 360f)] private float viewAngle;           //시야각
     [SerializeField] private LayerMask targetLayer;                     //적 레이어
     List<GameObject> targetList = new List<GameObject>();
     
     [Header("UnitInfo")]
-    public UnitType unitType;
-    [SerializeField] private string unitName;         //이름
-    [SerializeField] private float speed;             //이동속도
-    [SerializeField] private float attackSpeed;       //공격 속도
-    [SerializeField] private float attackRange;       //공격 사거리
-    [SerializeField] private string attackName;       //공격 이름
-    public int damage;                                //데미지
+    [HideInInspector]public UnitType unitType;
+    [SerializeField] private string unitName;                           //이름
+    [SerializeField] private float speed;                               //이동속도
+    [SerializeField] private float attackSpeed;                         //공격 속도
+    [SerializeField] private float attackRange;                         //공격 사거리
+    [SerializeField] private string attackName;                         //공격 이름
+    public int damage;                                                  //데미지
     
     private void OnEnable()
     {
@@ -155,7 +155,5 @@ public class BasicUnit : MonoBehaviour, IAttackble
     private void OnDisable()
     {
         ObjectPooling.ReturnToPool(gameObject);
-    }
-
-   
+    }   
 }

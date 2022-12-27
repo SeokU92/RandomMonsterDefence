@@ -52,7 +52,7 @@ public class GameManager : Singleton<GameManager>
     }
     private void OnEnable()
     {
-        gold = 100;
+        gold = 1000;
         life = 10;
         purchaseCost = 10;        
     }

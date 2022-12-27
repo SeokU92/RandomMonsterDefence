@@ -18,19 +18,19 @@ public class MergeUnit : MonoBehaviour
     {
         isSelect = true;
     }
+    private void OnMouseUp()
+    {
+        isSelect = false;
+    }
     private void OnMouseDrag()
     {
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dragSpeed);
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         transform.position = objPosition;        
     }
-    private void OnMouseUp()
-    {
-        isSelect = false;
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if(isSelect &&  unit.name == other.GetComponent<BasicUnit>().name)
+        if(isSelect &&  unit.name == other.name)
         {
             BasicUnit unit1 = gameObject.GetComponent<BasicUnit>();
             BasicUnit unit2 = other.gameObject.GetComponent<BasicUnit>();
@@ -38,8 +38,9 @@ public class MergeUnit : MonoBehaviour
             GameManager.Instance.unitManager.unitList.Remove(unit2);
             gameObject.SetActive(false);
             other.gameObject.SetActive(false);
+
             if (this.unit.name + "One" == unit.unitType + "One")
-            {
+            {              
                 GameObject unitTwo = ObjectPooling.SpawnFromPool(unit.unitType + "Two", transform.position);
                 GameManager.Instance.unitManager.unitList.Add(unitTwo.GetComponent<BasicUnit>());
             }
@@ -48,14 +49,6 @@ public class MergeUnit : MonoBehaviour
                 GameObject unitThree = ObjectPooling.SpawnFromPool(unit.unitType + "Three", transform.position);
                 GameManager.Instance.unitManager.unitList.Add(unitThree.GetComponent<BasicUnit>());
             }
-        }    
-        else
-        {
-            isSelect = false;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-       
+        }  
     }
 }

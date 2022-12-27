@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class MouseClick : MonoBehaviour
 {
-    [SerializeField]
-    private LayerMask unitLayer;
-    [SerializeField]
-    private LayerMask groundLayer;
+    [SerializeField] private LayerMask unitLayer;
+    [SerializeField] private LayerMask groundLayer;
     private Camera mainCam;
     private UnitManager unitManager;
 

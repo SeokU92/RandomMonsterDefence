@@ -73,7 +73,5 @@ public class BasicEnemy : MonoBehaviour, IHittable
     {
         ObjectPooling.ReturnToPool(gameObject);
         Hp = maxHp;
-    }
-
-    
+    }    
 }
